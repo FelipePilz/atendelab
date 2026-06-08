@@ -55,3 +55,30 @@ VALUES (
  'admin',
  'ativo'
 );
+
+INSERT INTO pessoas (nome, documento, telefone, curso, periodo, status)
+VALUES (
+ 'Lucas Silva',
+ '123.456.789-00',
+ '(11) 98765-4321',
+ 'Ciência da Computação',
+ '4º Período',
+ 'Matriculado'
+);
+
+INSERT INTO tipos_atendimentos (nome, descricao, status)
+VALUES (
+ 'Suporte de TI',
+ 'Atendimento para resolução de problemas com login, acesso aos computadores do laboratório ou rede.',
+ 'ativo'
+);
+
+INSERT INTO atendimentos (pessoa_id, tipo_atendimento_id, usuario_id, descricao, observacao, status)
+VALUES (
+ 1,
+ 1,
+ 1,
+ 'Aluno não conseguia logar na máquina do laboratório 03.',
+ 'Foi realizado o reset da senha institucional e o acesso foi normalizado.',
+ 'ativo'
+);
