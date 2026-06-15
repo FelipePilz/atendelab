@@ -15,3 +15,5 @@ Thumbs.db
 # Arquivos temporários
 *.tmp
 *.bak
+
+/.idea/
