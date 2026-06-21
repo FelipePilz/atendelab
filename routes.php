@@ -13,19 +13,19 @@ switch ($controller) {
 
         switch ($action) {
             case 'login':
-                $usuarioController->exibirLogin();
+                $authController->exibirLogin();
                 break;
 
             case 'entrar':
-                $usuarioController->entrar();
+                $authController->entrar();
                 break;
 
             case 'dashboard':
-                $usuarioController->dashboard();
+                $authController->dashboard();
                 break;
 
             case 'logout':
-                $usuarioController->logout();
+                $authController->logout();
                 break;
 
             default:
