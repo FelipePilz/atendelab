@@ -1,0 +1,26 @@
+meta {
+  name: Login
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost/atendelab/public/?controller=auth&action=entrar
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  controller: auth
+  action: entrar
+}
+
+body:form-urlencoded {
+  email: admin@atendelab.com
+  senha: 123456
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

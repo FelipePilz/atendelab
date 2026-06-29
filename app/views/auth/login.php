@@ -42,7 +42,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form method="POST" action="?controller=auth&action=entrar">
+                        <form method="POST" action="<?= $baseUrl ?> ?controller=auth&action=entrar">
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">

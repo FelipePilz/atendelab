@@ -1,0 +1,21 @@
+meta {
+  name: Lista pessoas
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost/atendelab/public/?controller=pessoas&action=listar
+  body: none
+  auth: inherit
+}
+
+params:query {
+  controller: pessoas
+  action: listar
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
