@@ -6,6 +6,7 @@ require_once __DIR__ . '/app/controllers/AuthController.php';
 require_once __DIR__ . '/app/controllers/PessoasController.php';
 require_once __DIR__ . '/app/controllers/TiposAtendimentosController.php';
 require_once __DIR__ . '/app/controllers/AtendimentosController.php';
+require_once __DIR__ . '/app/controllers/FrontendController.php';
 
 $controller = $_GET['controller'] ?? 'auth';
 $action = $_GET['action'] ?? 'login';
@@ -52,6 +53,9 @@ switch ($controller) {
         break;
     case 'atendimentos':
         $obj = new AtendimentosController();
+        break;
+    case 'frontend':
+        $obj = new FrontendController();
         break;
     default:
         http_response_code(404);
