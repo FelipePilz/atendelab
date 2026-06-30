@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../app/middleware/auth.php';
 
 class AtendimentosController
 {
@@ -63,21 +64,17 @@ class AtendimentosController
 
     public function criar(): void
     {
-        $pessoaId = filter_input(INPUT_GET, 'pessoa_id', FILTER_VALIDATE_INT);
-        $tipoId = filter_input(INPUT_GET, 'tipo_atendimento_id', FILTER_VALIDATE_INT);
-        $usuarioId = filter_input(INPUT_GET, 'usuario_id', FILTER_VALIDATE_INT);
+        $usuario = usuarioAtual();
+        $pessoaId = filter_input(INPUT_POST, 'pessoa_id', FILTER_VALIDATE_INT);
+        $tipoId = filter_input(INPUT_POST, 'tipo_atendimento_id', FILTER_VALIDATE_INT);
         $descricao = trim($_POST['descricao'] ?? '');
         $data = trim($_POST['data_atendimento'] ?? '');
         $horario = trim($_POST['horario_atendimento'] ?? '');
-        $status = $_POST['status'] ?? 'aberto';
-
-        if (!$pessoaId || !$tipoId || !$usuarioId || $descricao === '' || $data === '' || $horario === '') {
+        $status = 'aberto';
+        $usuarioId = $usuario['id'];
+        
+        if (!$pessoaId || !$tipoId || $descricao === '' || $data === '' || $horario === '') {
             $this->json(['erro' => 'Preencha os campos obrigatórios.'], 422);
-            return;
-        }
-
-        if (!in_array($status, ['aberto', 'em_andamento'], true)) {
-            $this->json(['erro' => 'Status inicial inválido'], 422);
             return;
         }
 

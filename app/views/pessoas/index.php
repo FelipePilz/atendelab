@@ -249,11 +249,13 @@ async function carregarPessoas() {
                         Editar
                     </button>
 
-                    <button
-                        class="btn btn-sm btn-outline-danger"
-                        onclick="inativarPessoa(${Number(p.id)})">
-                        Inativar
-                    </button>
+                    ${p.status === 'ativo' ? `
+                        <button
+                            class="btn btn-sm btn-outline-danger"
+                            onclick="inativarPessoa(${Number(p.id)})">
+                            Inativar
+                        </button>
+                    ` : ''}
                 </td>
             </tr>
         `).join('');

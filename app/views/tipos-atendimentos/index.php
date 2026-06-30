@@ -196,12 +196,14 @@ async function carregarTipos() {
                             Editar
                         </button>
 
-                        <button
-                            type="button"
-                            class="btn btn-sm btn-outline-danger"
-                            onclick="inativarTipo(${Number(tipo.id)})">
-                            Inativar
-                        </button>
+                        ${tipo.status === 'ativo' ? `
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-danger"
+                                onclick="inativarTipo(${Number(tipo.id)})">
+                                Inativar
+                            </button>
+                        ` : ''}
                     </td>
                 </tr>
             `;

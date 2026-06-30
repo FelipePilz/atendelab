@@ -21,7 +21,7 @@ class TiposAtendimentosController
 
     public function listar(): void
     {
-        $sql = 'SELECT id, nome, descricao FROM tipos_atendimentos ORDER BY nome';
+        $sql = 'SELECT id, nome, descricao, status FROM tipos_atendimentos ORDER BY nome';
         $this->json($this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC));
     }
 
@@ -33,7 +33,7 @@ class TiposAtendimentosController
             return;
         }
 
-        $stmt = $this->pdo->prepare('SELECT id, nome, descricao FROM tipos_atendimentos WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT id, nome, descricao, status FROM tipos_atendimentos WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $tipo = $stmt->fetch(PDO::FETCH_ASSOC);
 
